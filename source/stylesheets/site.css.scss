@@ -1,4 +1,10 @@
 @import "normalize";
 
 body {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.main-content {
+  max-width: 700px;
+  margin: 0 auto;
 }
