@@ -1,7 +1,10 @@
 @import "normalize";
+@import "nord";
 
 body {
   font-family: "Fira Sans", sans-serif;
+  background-color: $nord6;
+  color: $nord1;
 }
 
 .main-content {
