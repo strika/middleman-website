@@ -44,3 +44,7 @@ page '/*.txt', layout: false
 #   activate :minify_css
 #   activate :minify_javascript
 # end
+
+activate :gh_pages do |gh_pages|
+  gh_pages.remote = "git@github.com:strika/middleman-website.git"
+end
