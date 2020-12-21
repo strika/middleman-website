@@ -1,0 +1,152 @@
+---
+title: Test aritmetike
+---
+
+<h1>Test aritmetike</h1>
+
+<h2>Sabiranje i oduzimanje</h2>
+
+<div class="task addition">
+  <span class="numbers">
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div class="task addition">
+  <span class="numbers">
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div class="task addition">
+  <span class="numbers">
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div class="task addition">
+  <span class="numbers">
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div class="task addition">
+  <span class="numbers">
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    +
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div>
+  <button id="submit-test" type="button">Proveri Rešenja</button>
+</div>
+
+<script>
+(function() {
+  function generateSum(n) {
+    var numbers = [];
+
+    for (var i = 0; i < n; i++) {
+      var number = Math.round(Math.random() * 1000);
+
+      numbers.push(number);
+    }
+
+    numbers.push(numbers.reduce((sum, x) => sum + x));
+
+    return numbers;
+  }
+
+  function generateAdditions() {
+    var tasks = document.querySelectorAll(".task.addition");
+
+    Array.prototype.forEach.call(tasks, function(task, i) {
+      var elements = task.querySelectorAll(".number"),
+          numbers = generateSum(elements.length);
+
+      Array.prototype.forEach.call(elements, function(el, i) {
+        el.textContent = numbers[i];
+      });
+
+      task.querySelector(".result").setAttribute(
+        "data-result",
+        numbers[numbers.length - 1]
+      );
+    });
+  }
+
+  function submitTest() {
+    var tasks = document.querySelectorAll(".task.addition");
+
+    Array.prototype.forEach.call(tasks, function(task, i) {
+      var $result = task.querySelector(".result"),
+          $message = task.querySelector(".message");
+
+      if ($result.value === $result.getAttribute("data-result")) {
+        $message.textContent = "Tačno";
+      } else {
+        $message.textContent = "Netačno";
+      }
+    });
+  }
+
+  generateAdditions();
+
+  document.getElementById("submit-test").addEventListener("click", submitTest);
+} ());
+</script>
+
+<style>
+.task {
+  margin-bottom: 10px;
+}
+
+.numbers {
+  display: inline-block;
+  min-width: 160px;
+}
+</style>
