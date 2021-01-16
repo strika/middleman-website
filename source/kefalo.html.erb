@@ -156,12 +156,10 @@ title: Test aritmetike
     return numbers;
   }
 
-  function generateAdditions() {
-    var tasks = document.querySelectorAll(".task.addition");
-
+  function generateTasks(tasks, generator) {
     Array.prototype.forEach.call(tasks, function(task, i) {
       var elements = task.querySelectorAll(".number"),
-          numbers = generateSum(elements.length);
+          numbers = generator(elements.length);
 
       Array.prototype.forEach.call(elements, function(el, i) {
         el.textContent = numbers[i];
@@ -174,7 +172,14 @@ title: Test aritmetike
     });
   }
 
-  function generateMultiplication() {
+  function generateAdditions() {
+    var tasks = document.querySelectorAll(".task.addition");
+
+    generateTasks(tasks, generateSum);
+  }
+
+  function generateMultiplication(n) {
+    // n is ignored. The function always generates 2 numbers and the result.
     var n1 = Math.round(Math.random() * 100),
         n2 = Math.round(Math.random() * 100);
 
@@ -184,19 +189,7 @@ title: Test aritmetike
   function generateMultiplications() {
     var tasks = document.querySelectorAll(".task.multiplication");
 
-    Array.prototype.forEach.call(tasks, function(task, i) {
-      var elements = task.querySelectorAll(".number"),
-          numbers = generateMultiplication();
-
-      Array.prototype.forEach.call(elements, function(el, i) {
-        el.textContent = numbers[i];
-      });
-
-      task.querySelector(".result").setAttribute(
-        "data-result",
-        numbers[numbers.length - 1]
-      );
-    });
+    generateTasks(tasks, generateMultiplication);
   }
 
   function submitTest() {
