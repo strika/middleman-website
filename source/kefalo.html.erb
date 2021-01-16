@@ -81,6 +81,17 @@ title: Test aritmetike
   <span class="message"></span>
 </div>
 
+<div class="task multiplication">
+  <span class="numbers">
+    <span class="number"></span>
+    x
+    <span class="number"></span>
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
 <div>
   <button id="submit-test" type="button">Proveri Rešenja</button>
 </div>
@@ -119,6 +130,31 @@ title: Test aritmetike
     });
   }
 
+  function generateMultiplication() {
+    var n1 = Math.round(Math.random() * 100),
+        n2 = Math.round(Math.random() * 100);
+
+    return [n1, n2, n1 * n2];
+  }
+
+  function generateMultiplications() {
+    var tasks = document.querySelectorAll(".task.multiplication");
+
+    Array.prototype.forEach.call(tasks, function(task, i) {
+      var elements = task.querySelectorAll(".number"),
+          numbers = generateMultiplication();
+
+      Array.prototype.forEach.call(elements, function(el, i) {
+        el.textContent = numbers[i];
+      });
+
+      task.querySelector(".result").setAttribute(
+        "data-result",
+        numbers[numbers.length - 1]
+      );
+    });
+  }
+
   function submitTest() {
     var tasks = document.querySelectorAll(".task.addition");
 
@@ -135,6 +171,7 @@ title: Test aritmetike
   }
 
   generateAdditions();
+  generateMultiplications();
 
   document.getElementById("submit-test").addEventListener("click", submitTest);
 } ());
