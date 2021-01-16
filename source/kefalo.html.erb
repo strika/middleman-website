@@ -157,11 +157,11 @@ title: Test aritmetike
   }
 
   function generateTasks(tasks, generator) {
-    Array.prototype.forEach.call(tasks, function(task, i) {
+    tasks.forEach(function(task, i) {
       var elements = task.querySelectorAll(".number"),
           numbers = generator(elements.length);
 
-      Array.prototype.forEach.call(elements, function(el, i) {
+      elements.forEach(function(el, i) {
         el.textContent = numbers[i];
       });
 
@@ -195,7 +195,7 @@ title: Test aritmetike
   function submitTest() {
     var tasks = document.querySelectorAll(".task");
 
-    Array.prototype.forEach.call(tasks, function(task, i) {
+    tasks.forEach(function(task, i) {
       var $result = task.querySelector(".result"),
           $message = task.querySelector(".message");
 
