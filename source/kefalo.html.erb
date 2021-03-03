@@ -11,7 +11,14 @@ title: Test aritmetike
     <span class="number"></span>
     +
     <span class="number"></span>
-    +
+    =
+  </span>
+  <input class="result" type="number">
+  <span class="message"></span>
+</div>
+
+<div class="task addition">
+  <span class="numbers">
     <span class="number"></span>
     +
     <span class="number"></span>
@@ -26,10 +33,6 @@ title: Test aritmetike
     <span class="number"></span>
     +
     <span class="number"></span>
-    +
-    <span class="number"></span>
-    +
-    <span class="number"></span>
     =
   </span>
   <input class="result" type="number">
@@ -41,10 +44,6 @@ title: Test aritmetike
     <span class="number"></span>
     +
     <span class="number"></span>
-    +
-    <span class="number"></span>
-    +
-    <span class="number"></span>
     =
   </span>
   <input class="result" type="number">
@@ -53,25 +52,6 @@ title: Test aritmetike
 
 <div class="task addition">
   <span class="numbers">
-    <span class="number"></span>
-    +
-    <span class="number"></span>
-    +
-    <span class="number"></span>
-    +
-    <span class="number"></span>
-    =
-  </span>
-  <input class="result" type="number">
-  <span class="message"></span>
-</div>
-
-<div class="task addition">
-  <span class="numbers">
-    <span class="number"></span>
-    +
-    <span class="number"></span>
-    +
     <span class="number"></span>
     +
     <span class="number"></span>
@@ -148,7 +128,7 @@ title: Test aritmetike
     var numbers = [];
 
     for (var i = 0; i < n; i++) {
-      var number = Math.round(Math.random() * 1000);
+      var number = Math.round(Math.random() * 10000);
 
       numbers.push(number);
     }
@@ -223,6 +203,6 @@ title: Test aritmetike
 
 .numbers {
   display: inline-block;
-  min-width: 160px;
+  min-width: 100px;
 }
 </style>
