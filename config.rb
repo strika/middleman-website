@@ -46,5 +46,6 @@ page '/*.txt', layout: false
 # end
 
 activate :gh_pages do |gh_pages|
-  gh_pages.remote = "git@github.com:strika/middleman-website.git"
+  gh_pages.remote = "git@github.com:strika/strika.github.io.git"
+  gh_pages.branch = "master"
 end
