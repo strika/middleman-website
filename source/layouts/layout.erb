@@ -8,18 +8,29 @@
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Nebojša Stričević - Homepage" %></title>
 
-    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+    <style>
+      nav {
+        max-width: 700px;
+        margin: 0 auto 100px auto;
+      }
 
-    <%= stylesheet_link_tag "site" %>
-    <%= javascript_include_tag "site" %>
+      .main-content {
+        max-width: 700px;
+        margin: 0 auto 100px auto;
+      }
+    </style>
   </head>
   <body>
+    <nav>
+      <a href="/">Home</a>
+      …
+      <a href="/how_i_got_here.html">History</a>
+      …
+      <a href="/cv.html">CV</a>
+    </nav>
+
     <div class="main-content">
       <%= yield %>
     </div>
-
-    <footer>
-      <small>© 2016 - <%= Date.today.year %> Nebojša Stričević</small>
-    </footer>
   </body>
 </html>
